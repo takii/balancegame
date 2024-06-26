@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로덕트팀 밸런스 게임</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-6xl overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 cursor-pointer" id="homeButton">
+            <h1 class="text-3xl font-bold text-white text-center">프로덕트팀 밸런스 게임</h1>
+        </div>
+        <div class="p-8">
+            <div id="nameInput" class="mb-8">
+                <div class="relative">
+                    <input type="text" id="userName" placeholder=" " class="block w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition duration-200 ease-in-out">
+                    <label for="userName" class="absolute left-4 top-3 text-gray-500 transition duration-200 ease-in-out pointer-events-none">이름을 입력하세요</label>
+                </div>
+                <button id="startGame" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white text-lg font-bold py-3 px-6 rounded-lg w-full transition duration-300 ease-in-out transform hover:scale-105">게임 시작</button>
+            </div>
+            <div id="gameContent" class="hidden">
+                <div id="question" class="text-2xl mb-8 text-center font-semibold"></div>
+                <div id="options" class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+                <div id="resultDisplay" class="mt-8"></div>
+                <div class="flex justify-between mt-8">
+                    <button id="prevQuestion" class="bg-gray-500 hover:bg-gray-600 text-white text-lg font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">이전 문제</button>
+                    <button id="nextQuestion" class="bg-green-500 hover:bg-green-600 text-white text-lg font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">다음 문제</button>
+                </div>
+            </div>
+            <div id="finalResults" class="hidden mt-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">최종 결과</h2>
+                <div id="finalResultsList" class="space-y-6"></div>
+                <button id="resetGame" class="mt-8 bg-yellow-500 hover:bg-yellow-600 text-white text-lg font-bold py-3 px-6 rounded-lg w-full transition duration-300 ease-in-out transform hover:scale-105">게임 리셋</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
